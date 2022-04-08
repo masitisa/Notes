@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar,useSta } from 'react-native';
+import { StyleSheet, Text, View,Image } from 'react-native';
 import { ScrollView } from 'react-native';
-import { backgroundColor, } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.info}>
-        <View style={styles.profilePic}></View>
-        <View style={styles.details}>
-          <Text style={styles.names}>Napo Ramaota</Text>
-          <Text style={styles.studentNum}>901013599</Text>
-          <Text style={styles.class}>Bssm</Text>
-          <Text style={styles.year}>Year 2 Semester 2</Text>
+      <View style={styles.header}>
+        <View>
+          <Image source={require('./assets/pic.png')} style={{width:100,height:100, borderRadius:50}} />
         </View>
-      </ScrollView >
+        <View style={styles.info} >
+          <Text style={{fontWeight:'bold',fontSize:26}}>Napo Ramaota</Text>
+          <Text style={styles.studentNum} >901013599</Text>
+          <Text style={{fontWeight:'bold'}}>BSCSM</Text>
+          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:5}}>
+            <Text style={styles.butn}> Edit </Text>
+            <Text style={styles.butn}> Settings </Text>
+            
+          </View>
+        </View>
+      </View>
       <ScrollView >
         <View style={styles.results}>
         <View style={styles.semesters}>
@@ -76,7 +82,9 @@ export default function App() {
             </View>
           </View>
           <View style={styles.semester}>
-            <View style={styles.semesterNum}><Text style={styles.semesterNum}>Semester 3</Text></View>
+            <View style={styles.semesterNum}>
+              <Text style={styles.semesterNum}>Semester 3</Text>
+            </View>
             
             <View style={styles.moduleInfo}>
             <View style={styles.module}>
@@ -228,12 +236,12 @@ const styles = StyleSheet.create({
   semesters:{
     backgroundColor:"gray",
     width:'95%',
-    margin:10,
+    margin:'5%',
     borderRadius:20,
 
   },
   info:{
-    width:'90%',
+    width:'100%',
     backgroundColor:'blue',
     
   },
@@ -255,10 +263,8 @@ const styles = StyleSheet.create({
     borderRadius:9
   },
   info:{
-    flexDirection: 'row',
-    marginTop: 30,
-    backgroundColor:'#dbffc4',
-    width:'90%',
+    marginLeft:30,
+    
     padding:5,
     
   },
@@ -291,5 +297,25 @@ const styles = StyleSheet.create({
   },
   grade:{
     fontWeight:'bold'
+  },
+  header:{
+    flexDirection:'row',
+    backgroundColor:'#B2FF59',
+    padding:10,
+    width:'95%',
+    borderRadius:20,
+    alignItems:'flex-start',
+    margin:'5%'
+  },
+  studentNum:{
+    fontWeight:"bold",
+    fontStyle:'italic',
+    color:'#fff',
+    fontSize:20
+  },
+  butn:{
+    borderRadius:40,
+    borderColor:'#000',
+    borderWidth:1,
   }
 });
